@@ -7,6 +7,10 @@ class Author(models.Model):
     birth_date = models.DateField()
     biography = models.TextField(max_length=1000)
 
+    def str(self):
+        return self.name
+
+
 
 
 class Book(models.Model):
@@ -16,11 +20,21 @@ class Book(models.Model):
     price = models.IntegerField()
 
 
+    def str(self):
+        return self.title
+
+
+
 
 class Review(models.Model):
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
     reviewer_name = models.CharField(max_length=30)
     content = models.TextField(max_length=500)
+
+
+    def str(self):
+        return self.reviewer_name
+
    
 
    
